@@ -6,29 +6,45 @@
   <title>Sonia Delso Roche — UX/UI Designer</title>
   <meta name="description" content="UX/UI designer specialized in digital communication and brand design. Portfolio of selected work.">
   <link rel="icon" href="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=64&height=64">
-  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Import Google Fonts as defined in your provided CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css"> <!-- Link to your external stylesheet -->
 </head>
 <body>
-  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
 
-  <a href="index.html" class="site-logo" aria-label="Home">
-    <img src="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=80&height=80" alt="Sonia Delso">
-  </a>
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="inner-header-content">
+      <a href="index.html" class="site-logo" aria-label="Home">
+        <img src="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=80&height=80" width="60" height="60" alt="Sonia Delso Logo">
+      </a>
+      <nav class="main-nav" aria-label="Site navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ux-ui-design">UX/UI Design</a></li>
+          <li><a href="#brand-design">Brand Design</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Main Content Area -->
   <main class="page">
     <section class="hero" id="home">
       <div class="hero__main reveal">
-        <h1 class="hero__title" data-split-text>Heyy, I am Sonia :)</h1>
+        <h1 class="hero__title">Hey, I am Sonia :)</h1>
         <div class="hero__intro">
           <p>I work with brands to enhance their storytelling, combining strategy, creativity and user-centered design.</p>
           <p>I'm passionate about innovation: exploring new ways to connect, tell stories and design experiences.</p>
         </div>
-        <a href="#ux-ui-design" class="scroll-hint" aria-label="Scroll to work">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        <a href="#ux-ui-design" class="scroll-hint" aria-label="Scroll to work section">
+          Scroll Down
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
         </a>
-      </div>
-      <div class="hero__aside reveal reveal-delay-1">
-        <p>I am a UX/UI designer specialized in digital communication and brand design.</p>
       </div>
     </section>
 
@@ -36,74 +52,60 @@
     <section class="work-section" id="ux-ui-design">
       <div class="work-section__header reveal">
         <h2 class="work-section__title">UX/UI Design</h2>
-        <span class="work-section__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
       </div>
 
-      <div class="project-track-wrap">
-        <span class="drag-hint">Drag for more</span>
-        <div class="project-track">
-          <article class="project-card reveal">
-            <a href="projects/les-noies-del-medi.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/usR7DPJB6VGVTaVYxAqrwU9A44w.png?width=1200&height=900" alt="Les Noies del Medi website redesign" loading="lazy">
-                <span class="project-card__tag">UX/UI</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">UX/UI</span>
-                <span class="project-card__year">2025</span>
-                <span class="project-card__name">Les Noies del Medi</span>
-                <span class="project-card__desc">Website redesign surf-related project</span>
-              </div>
-            </a>
-          </article>
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <a href="projects/les-noies-del-medi.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/usR7DPJB6VGVTaVYxAqrwU9A44w.png?width=1200&height=900" width="1200" height="900" alt="Les Noies del Medi website redesign" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">Les Noies del Medi</h3>
+              <time datetime="2025" class="project-card__year">2025</time>
+              <p class="project-card__desc">Website redesign surf-related project</p>
+            </div>
+          </a>
+        </article>
 
-          <article class="project-card reveal reveal-delay-1">
-            <a href="projects/twothirds-crowdfunding.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/WPY41D7mRV8L660sefChf29ZI04.png?width=1200&height=900" alt="TWOTHIRDS crowdfunding landing page" loading="lazy">
-                <span class="project-card__tag">UX/UI</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">UX/UI</span>
-                <span class="project-card__year">2024</span>
-                <span class="project-card__name">TWOTHIRDS</span>
-                <span class="project-card__desc">Crowdfunding landing page design</span>
-              </div>
-            </a>
-          </article>
+        <article class="project-card reveal reveal-delay-1">
+          <a href="projects/twothirds-crowdfunding.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/WPY41D7mRV8L660sefChf29ZI04.png?width=1200&height=900" width="1200" height="900" alt="TWOTHIRDS crowdfunding landing page" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">TWOTHIRDS</h3>
+              <time datetime="2024" class="project-card__year">2024</time>
+              <p class="project-card__desc">Crowdfunding landing page design</p>
+            </div>
+          </a>
+        </article>
 
-          <article class="project-card reveal reveal-delay-2">
-            <a href="projects/personal-portfolio.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/AS3Vs0sqzF5PQI8cAkmegAA0.png?width=1200&height=900" alt="Personal Figma portfolio" loading="lazy">
-                <span class="project-card__tag">UX/UI</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">UX/UI</span>
-                <span class="project-card__year">2023</span>
-                <span class="project-card__name">Personal Project</span>
-                <span class="project-card__desc">Figma portfolio creation &amp; prototyping</span>
-              </div>
-            </a>
-          </article>
+        <article class="project-card reveal reveal-delay-2">
+          <a href="projects/personal-portfolio.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/AS3Vs0sqzF5PQI8cAkmegAA0.png?width=1200&height=900" width="1200" height="900" alt="Personal Figma portfolio" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">Personal Project</h3>
+              <time datetime="2023" class="project-card__year">2023</time>
+              <p class="project-card__desc">Figma portfolio creation &amp; prototyping</p>
+            </div>
+          </a>
+        </article>
 
-          <article class="project-card reveal reveal-delay-3">
-            <a href="projects/twothirds-subscription.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/J7QibhLuUY0ITod8dtqxiNeZI.png?width=1200&height=900" alt="TWOTHIRDS subscription pop-up redesign" loading="lazy">
-                <span class="project-card__tag">UX/UI</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">UX/UI</span>
-                <span class="project-card__year">2025</span>
-                <span class="project-card__name">TWOTHIRDS</span>
-                <span class="project-card__desc">Interaction redesign subscription pop-up</span>
-              </div>
-            </a>
-          </article>
-        </div>
+        <article class="project-card reveal reveal-delay-3">
+          <a href="projects/twothirds-subscription.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/J7QibhLuUY0ITod8dtqxiNeZI.png?width=1200&height=900" width="1200" height="900" alt="TWOTHIRDS subscription pop-up redesign" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">TWOTHIRDS</h3>
+              <time datetime="2025" class="project-card__year">2025</time>
+              <p class="project-card__desc">Interaction redesign subscription pop-up</p>
+            </div>
+          </a>
+        </article>
       </div>
     </section>
 
@@ -111,101 +113,92 @@
     <section class="work-section" id="brand-design">
       <div class="work-section__header reveal">
         <h2 class="work-section__title">Brand Design</h2>
-        <span class="work-section__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
       </div>
 
-      <div class="project-track-wrap">
-        <span class="drag-hint">Drag for more</span>
-        <div class="project-track">
-          <article class="project-card reveal">
-            <a href="projects/cruda.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/ZkepEZCgR9mgeaJWKe820BOmGc.png?width=1200&height=900" alt="CRUDA editorial magazine" loading="lazy">
-                <span class="project-card__tag">Brand</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">Brand</span>
-                <span class="project-card__year">2023</span>
-                <span class="project-card__name">CRUDA</span>
-                <span class="project-card__desc">Editorial design magazine and brand</span>
-              </div>
-            </a>
-          </article>
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <a href="projects/cruda.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/ZkepEZCgR9mgeaJWKe820BOmGc.png?width=1200&height=900" width="1200" height="900" alt="CRUDA editorial magazine" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">CRUDA</h3>
+              <time datetime="2023" class="project-card__year">2023</time>
+              <p class="project-card__desc">Editorial design magazine and brand</p>
+            </div>
+          </a>
+        </article>
 
-          <article class="project-card reveal reveal-delay-1">
-            <a href="projects/groots.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/yIsQcqFuudJh2gpJACdFlu3eAM.png?width=1200&height=900" alt="Groots brand design" loading="lazy">
-                <span class="project-card__tag">Brand</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">Brand</span>
-                <span class="project-card__year">2022</span>
-                <span class="project-card__name">Groots</span>
-                <span class="project-card__desc">Motion and brand assets design</span>
-              </div>
-            </a>
-          </article>
+        <article class="project-card reveal reveal-delay-1">
+          <a href="projects/groots.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/yIsQcqFuudJh2gpJACdFlu3eAM.png?width=1200&height=900" width="1200" height="900" alt="Groots brand design" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">Groots</h3>
+              <time datetime="2022" class="project-card__year">2022</time>
+              <p class="project-card__desc">Motion and brand assets design</p>
+            </div>
+          </a>
+        </article>
 
-          <article class="project-card reveal reveal-delay-2">
-            <a href="projects/joy.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/UxlcMPebOSqus5jqOuG8VDzP6ao.png?width=1200&height=900" alt="JOY theater flyer design" loading="lazy">
-                <span class="project-card__tag">Brand</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">Brand</span>
-                <span class="project-card__year">2023</span>
-                <span class="project-card__name">Cia La Espina</span>
-                <span class="project-card__desc">Leaflet design for theater play</span>
-              </div>
-            </a>
-          </article>
+        <article class="project-card reveal reveal-delay-2">
+          <a href="projects/joy.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/UxlcMPebOSqus5jqOuG8VDzP6ao.png?width=1200&height=900" width="1200" height="900" alt="JOY theater flyer design" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">Cia La Espina</h3>
+              <time datetime="2023" class="project-card__year">2023</time>
+              <p class="project-card__desc">Leaflet design for theater play</p>
+            </div>
+          </a>
+        </article>
 
-          <article class="project-card reveal reveal-delay-3">
-            <a href="projects/museo-do-mar.html" class="project-card__link" data-cursor="view" data-cursor-label="View">
-              <div class="project-card__visual">
-                <img src="https://framerusercontent.com/images/De1m4rDbITHlrBkUoRb03pZWoA.png?width=1200&height=900" alt="Museo do Mar brand redesign" loading="lazy">
-                <span class="project-card__tag">Brand</span>
-              </div>
-              <div class="project-card__meta">
-                <span class="project-card__category">Brand</span>
-                <span class="project-card__year">2023</span>
-                <span class="project-card__name">Master's Project</span>
-                <span class="project-card__desc">Brand redesign for Museo do Mar</span>
-              </div>
-            </a>
-          </article>
-        </div>
+        <article class="project-card reveal reveal-delay-3">
+          <a href="projects/museo-do-mar.html" class="project-card__link">
+            <div class="project-card__visual">
+              <img src="https://framerusercontent.com/images/De1m4rDbITHlrBkUoRb03pZWoA.png?width=1200&height=900" width="1200" height="900" alt="Museo do Mar brand redesign" loading="lazy">
+            </div>
+            <div class="project-card__meta">
+              <h3 class="project-card__name">Master's Project</h3>
+              <time datetime="2023" class="project-card__year">2023</time>
+              <p class="project-card__desc">Brand redesign for Museo do Mar</p>
+            </div>
+          </a>
+        </article>
       </div>
     </section>
-
-    <footer class="contact" id="contact">
-      <div class="contact__links reveal">
-        <a href="https://www.linkedin.com/in/soniadelsoroche/" class="contact__link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.behance.net/soniadelso" class="contact__link" target="_blank" rel="noopener">Behance</a>
-      </div>
-    </footer>
   </main>
 
-  <nav class="floating-nav" aria-label="Site navigation">
-    <a href="index.html" class="floating-nav__logo">
-      <img src="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=56&height=56" alt="">
-    </a>
-    <button class="floating-nav__toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <!-- Contact Footer (Placed outside main so background spans 100% viewport width) -->
+  <footer class="contact" id="contact">
+    <div class="contact__links reveal">
+      <a href="https://www.linkedin.com/in/soniadelsoroche/" class="contact__link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/soniadelso" class="contact__link" target="_blank" rel="noopener">Behance</a>
+    </div>
+  </footer>
 
-  <div class="menu-overlay" aria-hidden="true">
-    <a href="#home" class="menu-overlay__link">Home</a>
-    <a href="#ux-ui-design" class="menu-overlay__link">UX/UI Design</a>
-    <a href="#brand-design" class="menu-overlay__link">Brand Design</a>
-    <a href="#contact" class="menu-overlay__link">Contact</a>
-  </div>
+  <!-- Intersection Observer Script for Scroll Animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Element animated once, now stop tracking it
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '0px 0px -40px 0px' // Offsets trigger point slightly before viewport entry
+      });
 
-  <script src="js/main.js"></script>
+      reveals.forEach(element => observer.observe(element));
+    });
+  </script>
 </body>
 </html>
