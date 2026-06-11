@@ -293,3 +293,1090 @@
       gap: 0.25rem;
     }
   }
+  /* ==========================================================================
+   Selected Projects Carousel & Pagination
+   ========================================================================== */
+
+/* Cabecera del Carrusel */
+.related__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--page-padding);
+  margin-bottom: 2rem;
+}
+
+.related__title {
+  padding: 0 !important; /* Resetea el padding anterior */
+  margin-bottom: 0 !important;
+}
+
+/* Controles del Carrusel (Flechas en parte superior derecha) */
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.carousel-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+/* Contenedor del track adaptado para Drag & Swipe */
+.project-track-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Oculta scrollbar en Firefox */
+  padding: 0 var(--page-padding);
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+.project-track-wrap::-webkit-scrollbar {
+  display: none; /* Oculta scrollbar en Chrome y Safari */
+}
+
+.project-track-wrap.active {
+  cursor: grabbing;
+}
+
+.project-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding-bottom: 10px;
+}
+
+/* Tarjetas reducidas de tamaño en el carrusel */
+.project-track .project-card {
+  width: 280px; /* Tamaño reducido para no saturar verticalmente */
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+}
+
+/* Paginación Siguiente / Anterior */
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  width: 48%;
+  transition: color 0.3s var(--ease);
+}
+
+.pagination-btn--prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pagination-btn--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.pagination-btn:hover {
+  color: var(--text);
+}
+
+.pagination-arrow {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: transform 0.3s var(--ease);
+}
+
+/* Animaciones al pasar el cursor sobre los botones */
+.pagination-btn--prev:hover .pagination-arrow {
+  transform: translateX(-6px);
+}
+
+.pagination-btn--next:hover .pagination-arrow {
+  transform: translateX(6px);
+}
+
+.pagination-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--heading);
+  color: var(--text-muted);
+}
+
+.pagination-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 0.2rem;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+  .project-pagination {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  
+  .pagination-btn {
+    width: 100%;
+  }
+
+  .pagination-btn--next {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse; /* En móvil la flecha sigue a la derecha */
+  }
+}
+/* ==========================================================================
+   Selected Projects Carousel & Pagination
+   ========================================================================== */
+
+/* Cabecera del Carrusel con Filtros */
+.related__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--page-padding);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.related__title-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.related__title {
+  padding: 0 !important; /* Resetea el padding anterior */
+  margin-bottom: 0 !important;
+}
+
+/* Estructura de Filtros (Estilo Pill) */
+.related__filters {
+  display: flex;
+  gap: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: var(--heading);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.filter-btn:hover {
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background-color: var(--text);
+  color: var(--bg); /* Texto oscuro sobre pastilla clara */
+  font-weight: 500;
+}
+
+/* Controles del Carrusel (Flechas superior derecha) */
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.carousel-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+/* Forzar visualización de etiquetas de categoría solo en el carrusel */
+.related .project-card__tag {
+  display: inline-block !important; /* Fuerza visibilidad anulando el 'none' global */
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(26, 26, 26, 0.85); /* Fondo oscuro translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-size: 0.55rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  z-index: 5;
+  pointer-events: none; /* Asegura que no interfiera en la detección del arrastre */
+}
+
+/* Contenedor del track adaptado para Drag & Swipe */
+.project-track-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Oculta scrollbar en Firefox */
+  padding: 0 var(--page-padding);
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+.project-track-wrap::-webkit-scrollbar {
+  display: none; /* Oculta scrollbar en Chrome y Safari */
+}
+
+.project-track-wrap.active {
+  cursor: grabbing;
+}
+
+.project-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding-bottom: 10px;
+}
+
+/* Tarjetas en el carrusel */
+.project-track .project-card {
+  width: 280px; 
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+}
+
+/* Paginación Siguiente / Anterior */
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  width: 48%;
+  transition: color 0.3s var(--ease);
+}
+
+.pagination-btn--prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pagination-btn--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.pagination-btn:hover {
+  color: var(--text);
+}
+
+.pagination-arrow {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: transform 0.3s var(--ease);
+}
+
+.pagination-btn--prev:hover .pagination-arrow {
+  transform: translateX(-6px);
+}
+
+.pagination-btn--next:hover .pagination-arrow {
+  transform: translateX(6px);
+}
+
+.pagination-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--heading);
+  color: var(--text-muted);
+}
+
+.pagination-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 0.2rem;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+  .related__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .carousel-controls {
+    align-self: flex-end; /* Coloca las flechas a la derecha en móviles */
+  }
+
+  .project-pagination {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  
+  .pagination-btn {
+    width: 100%;
+  }
+
+  .pagination-btn--next {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+  }
+}
+/* ==========================================================================
+   Selected Projects Carousel, Drag Cursor & Pagination
+   ========================================================================== */
+
+/* Bloqueo de arrastre fantasma nativo del navegador */
+.project-track img,
+.project-card__link {
+  -webkit-user-drag: none !important;
+  user-select: none !important;
+  -moz-user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Cabecera del Carrusel con Filtros */
+.related__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--page-padding);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.related__title-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.related__title {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Estructura de Filtros (Estilo Pill) */
+.related__filters {
+  display: flex;
+  gap: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: var(--heading);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.filter-btn:hover {
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background-color: var(--text);
+  color: var(--bg);
+  font-weight: 500;
+}
+
+/* Controles del Carrusel (Flechas superior derecha) */
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.carousel-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+/* Forzar visualización de etiquetas de categoría solo en el carrusel */
+.related .project-card__tag {
+  display: inline-block !important;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-size: 0.55rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Contenedor del track adaptado para Drag & Swipe */
+.project-track-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 0 var(--page-padding);
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+.project-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.project-track-wrap.active {
+  cursor: grabbing;
+}
+
+.project-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding-bottom: 10px;
+}
+
+.project-track .project-card {
+  width: 280px; 
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+}
+
+/* Indicador de cursor personalizado para el Drag (Efecto Escritorio) */
+.carousel-drag-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--text);
+  color: var(--bg);
+  font-family: var(--heading);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Ignora eventos de ratón para que no bloquee los clics en las tarjetas */
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+  z-index: 9999;
+}
+
+/* Clases de interacción del cursor añadidas mediante JS */
+.carousel-drag-cursor.visible {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.carousel-drag-cursor.dragging {
+  transform: translate(-50%, -50%) scale(0.85); /* Se contrae sutilmente al presionar */
+}
+
+/* Ocultar cursor nativo del sistema en hover sobre el carrusel en escritorio */
+@media (hover: hover) and (pointer: fine) {
+  .project-track-wrap:hover {
+    cursor: none;
+  }
+}
+
+/* Desactiva por completo el cursor personalizado en dispositivos móviles y táctiles */
+@media (max-width: 1024px) or (pointer: coarse) {
+  .carousel-drag-cursor {
+    display: none !important;
+  }
+  .project-track-wrap:hover {
+    cursor: grab;
+  }
+}
+
+/* Paginación Siguiente / Anterior */
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  width: 48%;
+  transition: color 0.3s var(--ease);
+}
+
+.pagination-btn--prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pagination-btn--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.pagination-btn:hover {
+  color: var(--text);
+}
+
+.pagination-arrow {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: transform 0.3s var(--ease);
+}
+
+.pagination-btn--prev:hover .pagination-arrow {
+  transform: translateX(-6px);
+}
+
+.pagination-btn--next:hover .pagination-arrow {
+  transform: translateX(6px);
+}
+
+.pagination-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--heading);
+  color: var(--text-muted);
+}
+
+.pagination-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 0.2rem;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+  .related__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .carousel-controls {
+    align-self: flex-end;
+  }
+
+  .project-pagination {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  
+  .pagination-btn {
+    width: 100%;
+  }
+
+  .pagination-btn--next {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+  }
+}
+/* ==========================================================================
+   Project Responsive Grid, Sticky Left Sidebar, Spacing & Carousel
+   ========================================================================== */
+
+/* Bloqueo de arrastre fantasma nativo del navegador */
+.project-track img,
+.project-card__link {
+  -webkit-user-drag: none !important;
+  user-select: none !important;
+  -moz-user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* 1. Grid Principal para el Contenido del Proyecto */
+.project-layout-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.project-sections-wrap {
+  flex: 1;
+  max-width: 100%;
+}
+
+/* 2. Barra de Navegación Lateral Sticky (Izquierda) */
+.project-sidebar {
+  position: sticky;
+  top: 130px; /* Margen para quedar alineado bajo la cabecera sticky principal */
+  height: fit-content;
+  align-self: start;
+}
+
+.project-side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Enlaces del menú lateral sticky */
+.side-nav-link {
+  font-family: var(--heading);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: color 0.35s var(--ease), padding-left 0.35s var(--ease);
+}
+
+.side-nav-link:hover,
+.side-nav-link.active {
+  color: var(--text);
+  padding-left: 14px;
+}
+
+/* Barra indicadora minimalista activa de la sección actual */
+.side-nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  width: 8px;
+  height: 1px;
+  background-color: var(--text);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.side-nav-link.active::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+/* 3. Estilos de las imágenes ilustrativas del proyecto */
+.project-image {
+  margin: clamp(2rem, 5vh, 4.5rem) 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); /* Sombra elegante para dar volumen */
+  border: 1px solid var(--border);
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 4. Cabecera del Carrusel con Filtros */
+.related__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--page-padding);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.related__title-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.related__title {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Estructura de Filtros (Estilo Pill) */
+.related__filters {
+  display: flex;
+  gap: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: var(--heading);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.filter-btn:hover {
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background-color: var(--text);
+  color: var(--bg);
+  font-weight: 500;
+}
+
+/* Controles del Carrusel */
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.carousel-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+/* Etiquetas de categoría en las tarjetas */
+.related .project-card__tag {
+  display: inline-block !important;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-size: 0.55rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Track de Desplazamiento */
+.project-track-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 0 var(--page-padding);
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+.project-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.project-track-wrap.active {
+  cursor: grabbing;
+}
+
+.project-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding-bottom: 10px;
+}
+
+.project-track .project-card {
+  width: 280px; 
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+}
+
+/* Paginación Siguiente / Anterior */
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  width: 48%;
+  transition: color 0.3s var(--ease);
+}
+
+.pagination-btn--prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pagination-btn--next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.pagination-btn:hover {
+  color: var(--text);
+}
+
+.pagination-arrow {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: transform 0.3s var(--ease);
+}
+
+.pagination-btn--prev:hover .pagination-arrow {
+  transform: translateX(-6px);
+}
+
+.pagination-btn--next:hover .pagination-arrow {
+  transform: translateX(6px);
+}
+
+.pagination-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--heading);
+  color: var(--text-muted);
+}
+
+.pagination-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 0.2rem;
+}
+
+/* 5. Ajustes Responsivos para Tablets y Móviles (Sidebar horizontal) */
+@media (max-width: 900px) {
+  .project-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* El sidebar se desactiva como sticky y se vuelve una lista horizontal superior */
+  .project-sidebar {
+    position: static;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .project-side-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .side-nav-link:hover,
+  .side-nav-link.active {
+    padding-left: 0;
+  }
+
+  /* Oculta la línea indicadora en versión horizontal móvil */
+  .side-nav-link::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .related__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .carousel-controls {
+    align-self: flex-end;
+  }
+
+  .project-pagination {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  
+  .pagination-btn {
+    width: 100%;
+  }
+
+  .pagination-btn--next {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+  }
+}
