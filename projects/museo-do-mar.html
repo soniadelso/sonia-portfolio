@@ -5,19 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museo do Mar — Sonia Delso Roche</title>
   <link rel="icon" href="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=64&height=64">
+  
+  <!-- Importar tipografías de Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/project.css">
+
+  <!-- Estilos personalizados para el Hero y el Ticker -->
+  <style>
+    /* Ajustes para que la imagen Hero ocupe todo el rectángulo de la izquierda */
+    .project-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch; /* Fuerza a que ambas columnas tengan la misma altura */
+      gap: 3rem;
+    }
+
+    .project-hero__visual {
+      width: 100%;
+      height: 100%;
+    }
+
+    .project-hero__visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Evita la distorsión rellenando todo el espacio */
+      display: block;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 991px) {
+      .project-hero {
+        grid-template-columns: 1fr;
+      }
+      .project-hero__visual img {
+        aspect-ratio: 1 / 1; /* Mantiene la proporción cuadrada en móvil */
+        height: auto;
+      }
+    }
+
+    /* Contenedor del Ticker */
+    .ticker-section {
+      width: 100%;
+      overflow: hidden;
+      margin: 4rem 0;
+      position: relative;
+    }
+
+    .ticker-section__title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      color: #8c8c8c;
+      padding: 0 1rem;
+    }
+
+    /* Envoltura del Ticker */
+    .ticker-container {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      user-select: none;
+    }
+
+    /* Pista que contiene los elementos duplicados para un loop sin saltos */
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker-loop 30s linear infinite;
+    }
+
+    /* Detener el movimiento en Hover (Hover 0%) */
+    .ticker-container:hover .ticker-track {
+      animation-play-state: paused;
+    }
+
+    /* Lista interna */
+    .ticker-list {
+      display: flex;
+      gap: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* Elemento individual del carrusel */
+    .ticker-item {
+      width: 420px;
+      flex-shrink: 0;
+    }
+
+    .ticker-item img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Animación del Ticker */
+    @keyframes ticker-loop {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0); /* Se desplaza exactamente la mitad */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ticker-item {
+        width: 300px;
+      }
+      .ticker-item img {
+        height: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
-  <a href="../index.html" class="site-logo" aria-label="Home">
-    <img src="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=80&height=80" alt="Sonia Delso">
-  </a>
+
+  <!-- Barra de Navegación Completa -->
+  <header class="main-header">
+    <div class="inner-header-content">
+      <a href="../index.html" class="site-logo" aria-label="Home">
+        <img src="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=80&height=80" width="60" height="60" alt="Sonia Delso Logo">
+      </a>
+      <nav class="main-nav" aria-label="Site navigation">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#ux-ui-design">UX/UI Design</a></li>
+          <li><a href="../index.html#brand-design">Brand Design</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main class="page">
+    <!-- Hero del Proyecto (La nueva imagen ocupa todo el lateral izquierdo) -->
     <header class="project-hero">
       <div class="project-hero__visual reveal">
-        <img src="https://framerusercontent.com/images/De1m4rDbITHlrBkUoRb03pZWoA.png?width=1400&height=1000" alt="Museo do Mar brand redesign">
+        <img src="https://framerusercontent.com/images/NkGZB7YN0RxRS8ZFA7c99oxYccI.png?width=958&height=719" width="958" height="719" alt="Museo do Mar brand redesign visual assets">
       </div>
       <div class="project-hero__info reveal reveal-delay-1">
         <span class="project-hero__tag">Brand</span>
@@ -25,49 +156,433 @@
         <p class="project-hero__summary">This project is a rebranding initiative developed as a group project during my Master's Degree in Graphic Design at LABASAD. The project focused on Museo do Mar in Galicia, aiming to attract a younger audience while maintaining the museum's identity and cultural heritage.</p>
         <p class="project-hero__type">Brand Redesign</p>
         <p class="project-hero__skills">Rebranding · Visual identity · Logo design · Brand applications</p>
+        
         <dl class="project-meta">
-          <div class="project-meta__row"><dt class="project-meta__label">Client</dt><dd class="project-meta__value">Master's Project</dd></div>
-          <div class="project-meta__row"><dt class="project-meta__label">Year</dt><dd class="project-meta__value">2023</dd></div>
-          <div class="project-meta__row"><dt class="project-meta__label">Field</dt><dd class="project-meta__value">Rebranding</dd></div>
+          <div class="project-meta__row">
+            <dt class="project-meta__label">Client</dt>
+            <dd class="project-meta__value">Master's Project</dd>
+          </div>
+          <div class="project-meta__row">
+            <dt class="project-meta__label">Year</dt>
+            <dd class="project-meta__value">2023</dd>
+          </div>
+          <div class="project-meta__row">
+            <dt class="project-meta__label">Field</dt>
+            <dd class="project-meta__value">Rebranding</dd>
+          </div>
         </dl>
       </div>
     </header>
 
+    <!-- Contenido del Proyecto con Grid Layout de dos columnas -->
     <div class="project-content">
-      <section class="project-section reveal">
-        <h2 class="project-section__title">Museo do Mar: New Identity</h2>
-        <p class="project-section__text">This rebranding project focused on Museo do Mar in Galicia, with the aim of <strong>engaging a younger audience while preserving the museum's cultural identity and heritage.</strong></p>
-        <p class="project-section__text">We redefined the visual identity and communication system to create a more approachable and contemporary brand experience, <strong>strengthening the museum's connection with new generations of visitors.</strong></p>
-      </section>
+      <div class="project-layout-grid">
+        
+        <!-- Navegación lateral Sticky (Izquierda) -->
+        <aside class="project-sidebar">
+          <nav class="project-side-nav" aria-label="Project sections navigation">
+            <ul>
+              <li><a href="#identity" class="side-nav-link active">New Identity</a></li>
+              <li><a href="#typo-color" class="side-nav-link">Typography &amp; Color</a></li>
+              <li><a href="#visual" class="side-nav-link">Visual Identity</a></li>
+              <li><a href="#materials" class="side-nav-link">Materials</a></li>
+            </ul>
+          </nav>
+        </aside>
 
-      <section class="project-section reveal">
-        <h2 class="project-section__title">Typography &amp; Color</h2>
-        <p class="project-section__note">The color palette evokes the sea and Galicia's coastal environment, enhancing brand recognition and visual cohesion across all materials. Typography was carefully selected to balance readability with personality, reflecting the museum's maritime theme and contemporary approach.</p>
-      </section>
+        <!-- Secciones de Contenido (Derecha) -->
+        <div class="project-sections-wrap">
+          
+          <!-- Sección 1: New Identity -->
+          <section id="identity" class="project-section reveal">
+            <h2 class="project-section__title">Museo do Mar: New Identity</h2>
+            <p class="project-section__text">This rebranding project focused on Museo do Mar in Galicia, with the aim of <strong>engaging a younger audience while preserving the museum's cultural identity and heritage.</strong></p>
+            <p class="project-section__text">We redefined the visual identity and communication system to create a more approachable and contemporary brand experience, <strong>strengthening the museum's connection with new generations of visitors.</strong></p>
+          </section>
 
-      <section class="project-section reveal">
-        <h2 class="project-section__title">Visual Identity</h2>
-        <p class="project-section__note">The rebranding focused on creating a fresh and modern visual identity for the museum. The new logo, inspired by the shape of the museum building, connects the identity directly to the architecture. The graphic elements were designed to appeal to a younger audience while preserving the museum's cultural heritage.</p>
-      </section>
+          <!-- Sección 2: Typography & Color -->
+          <section id="typo-color" class="project-section reveal">
+            <h2 class="project-section__title">Typography &amp; Color</h2>
+            <p class="project-section__text">The color palette evokes the sea and Galicia's coastal environment, enhancing brand recognition and visual cohesion across all materials. Typography was carefully selected to balance readability with personality, reflecting the museum's maritime theme and contemporary approach.</p>
+          </section>
 
-      <section class="project-section reveal">
-        <h2 class="project-section__title">Communication Materials</h2>
-        <p class="project-section__note">The project included the redesign of marketing and promotional materials, such as posters, flyers, merchandising items and social media graphics. Each piece was crafted to engage a younger audience and ensure consistent brand application across physical and digital touchpoints.</p>
-      </section>
-    </div>
+          <!-- Sección 3: Visual Identity -->
+          <section id="visual" class="project-section reveal">
+            <h2 class="project-section__title">Visual Identity</h2>
+            <p class="project-section__text">The rebranding focused on creating a fresh and modern visual identity for the museum. The new logo, inspired by the shape of the museum building, connects the identity directly to the architecture. The graphic elements were designed to appeal to a younger audience while preserving the museum's cultural heritage.</p>
+          </section>
 
-    <section class="related">
-      <h2 class="related__title">Selected Projects</h2>
-      <div class="project-track-wrap"><div class="project-track">
-        <article class="project-card"><a href="cruda.html" class="project-card__link" data-cursor="view" data-cursor-label="View"><div class="project-card__visual"><img src="https://framerusercontent.com/images/ZkepEZCgR9mgeaJWKe820BOmGc.png?width=800&height=600" alt="" loading="lazy"><span class="project-card__tag">Brand</span></div><div class="project-card__meta"><span class="project-card__category">Brand</span><span class="project-card__year">2023</span><span class="project-card__name">CRUDA</span><span class="project-card__desc">Editorial magazine</span></div></a></article>
-        <article class="project-card"><a href="groots.html" class="project-card__link" data-cursor="view" data-cursor-label="View"><div class="project-card__visual"><img src="https://framerusercontent.com/images/yIsQcqFuudJh2gpJACdFlu3eAM.png?width=800&height=600" alt="" loading="lazy"><span class="project-card__tag">Brand</span></div><div class="project-card__meta"><span class="project-card__category">Brand</span><span class="project-card__year">2022</span><span class="project-card__name">Groots</span><span class="project-card__desc">Brand assets</span></div></a></article>
-        <article class="project-card"><a href="les-noies-del-medi.html" class="project-card__link" data-cursor="view" data-cursor-label="View"><div class="project-card__visual"><img src="https://framerusercontent.com/images/usR7DPJB6VGVTaVYxAqrwU9A44w.png?width=800&height=600" alt="" loading="lazy"><span class="project-card__tag">UX/UI</span></div><div class="project-card__meta"><span class="project-card__category">UX/UI</span><span class="project-card__year">2025</span><span class="project-card__name">Les Noies del Medi</span><span class="project-card__desc">Website redesign</span></div></a></article>
-      </div></div>
+          <!-- Sección 4: Materials -->
+          <section id="materials" class="project-section reveal">
+            <h2 class="project-section__title">Communication Materials</h2>
+            <p class="project-section__text">The project included the redesign of marketing and promotional materials, such as posters, flyers, merchandising items and social media graphics. Each piece was crafted to engage a younger audience and ensure consistent brand application across physical and digital touchpoints.</p>
+          </section>
+
+        </div>
+      </div>
+
+     <!-- Sección del Carrusel Ticker -->
+     <section id="gallery" class="ticker-section reveal">
+      <h3 class="ticker-section__title">Visual Gallery</h3>
+      <div class="ticker-container" id="nauticalCarousel">
+        <div class="ticker-track">
+          
+          <!-- Grupo 1 original de imágenes (Exposiciones de Museo y Arte) -->
+          <div class="ticker-list">
+            <div class="ticker-item">
+              <img src="https://images.unsplash.com/photo-1545987796-200677ee1011?q=80&w=1000&auto=format&fit=crop" alt="Visitors inside a modern museum exhibition room">
+            </div>
+            <div class="ticker-item">
+              <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=1000&auto=format&fit=crop" alt="Classical oil painting displayed on a dark museum wall">
+            </div>
+            <div class="ticker-item">
+              <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=1000&auto=format&fit=crop" alt="Contemporary art piece inside a minimal white gallery">
+          </div>
+
+          <!-- Grupo 2 idéntico (Duplicado para crear el efecto de scroll infinito sin saltos) -->
+          <div class="ticker-list" aria-hidden="true">
+            <div class="ticker-item">
+              <img src="https://images.unsplash.com/photo-1545987796-200677ee1011?q=80&w=1000&auto=format&fit=crop" alt="Visitors inside a modern museum exhibition room">
+            </div>
+            <div class="ticker-item">
+              <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=1000&auto=format&fit=crop" alt="Classical oil painting displayed on a dark museum wall">
+            </div>
+            <div class="ticker-item">
+              <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=1000&auto=format&fit=crop" alt="Contemporary art piece inside a minimal white gallery
+          </div>
+
+        </div>
+      </div>
     </section>
+
+    <!-- Proyectos Seleccionados (Formato Carrusel con Filtros, Categorías, Flechas y Drag) -->
+    <section class="related">
+      <div class="related__header">
+        <div class="related__title-group">
+          <h2 class="related__title">Selected Projects</h2>
+          
+          <!-- Filtro del Carrusel -->
+          <div class="related__filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="brand">Brand</button>
+            <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-btn--prev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button class="carousel-btn carousel-btn--next" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="project-track-wrap">
+        <div class="project-track">
+          
+          <!-- Proyecto 1: Les Noies del Medi (UX/UI) -->
+          <article class="project-card" data-category="ux-ui">
+            <a href="les-noies-del-medi.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/usR7DPJB6VGVTaVYxAqrwU9A44w.png?width=1200&height=900" width="1200" height="900" alt="Les Noies del Medi website redesign" loading="lazy">
+                <span class="project-card__tag">UX/UI</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2025</span>
+                <h3 class="project-card__name">Les Noies del Medi</h3>
+                <p class="project-card__desc">Website redesign surf-related project</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Proyecto 2: TWOTHIRDS Crowdfunding (UX/UI) -->
+          <article class="project-card" data-category="ux-ui">
+            <a href="twothirds-crowdfunding.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/WPY41D7mRV8L660sefChf29ZI04.png?width=1200&height=900" width="1200" height="900" alt="TWOTHIRDS crowdfunding landing page" loading="lazy">
+                <span class="project-card__tag">UX/UI</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2024</span>
+                <h3 class="project-card__name">TWOTHIRDS</h3>
+                <p class="project-card__desc">Crowdfunding landing page design</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Proyecto 3: Personal Portfolio (UX/UI) -->
+          <article class="project-card" data-category="ux-ui">
+            <a href="personal-portfolio.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/AS3Vs0sqzF5PQI8cAkmegAA0.png?width=1200&height=900" width="1200" height="900" alt="Personal Figma portfolio" loading="lazy">
+                <span class="project-card__tag">UX/UI</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2023</span>
+                <h3 class="project-card__name">Personal Project</h3>
+                <p class="project-card__desc">Figma portfolio creation & prototyping</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Proyecto 4: TWOTHIRDS Subscription (UX/UI) -->
+          <article class="project-card" data-category="ux-ui">
+            <a href="twothirds-subscription.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/J7QibhLuUY0ITod8dtqxiNeZI.png?width=1200&height=900" width="1200" height="900" alt="TWOTHIRDS subscription pop-up redesign" loading="lazy">
+                <span class="project-card__tag">UX/UI</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2025</span>
+                <h3 class="project-card__name">TWOTHIRDS</h3>
+                <p class="project-card__desc">Interaction redesign subscription pop-up</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Proyecto 5: CRUDA (Brand) -->
+          <article class="project-card" data-category="brand">
+            <a href="cruda.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/ZkepEZCgR9mgeaJWKe820BOmGc.png?width=1200&height=900" width="1200" height="900" alt="CRUDA editorial magazine" loading="lazy">
+                <span class="project-card__tag">Brand</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2023</span>
+                <h3 class="project-card__name">CRUDA</h3>
+                <p class="project-card__desc">Editorial design magazine and brand</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Proyecto 6: Groots (Brand) -->
+          <article class="project-card" data-category="brand">
+            <a href="groots.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/yIsQcqFuudJh2gpJACdFlu3eAM.png?width=1200&height=900" width="1200" height="900" alt="Groots brand assets" loading="lazy">
+                <span class="project-card__tag">Brand</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2022</span>
+                <h3 class="project-card__name">Groots</h3>
+                <p class="project-card__desc">Motion and brand assets design</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Proyecto 7: Joy (Brand) -->
+          <article class="project-card" data-category="brand">
+            <a href="joy.html" class="project-card__link">
+              <div class="project-card__visual">
+                <img src="https://framerusercontent.com/images/UxlcMPebOSqus5jqOuG8VDzP6ao.png?width=1200&height=900" width="1200" height="900" alt="JOY theater flyer design" loading="lazy">
+                <span class="project-card__tag">Brand</span>
+              </div>
+              <div class="project-card__meta">
+                <span class="project-card__year">2023</span>
+                <h3 class="project-card__name">Cia La Espina</h3>
+                <p class="project-card__desc">Leaflet design for theater play</p>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación de Proyectos (Siguiente / Anterior) -->
+    <nav class="project-pagination">
+      <a href="joy.html" class="pagination-btn pagination-btn--prev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="pagination-arrow" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <div class="pagination-text">
+          <span class="pagination-label">Previous Project</span>
+          <span class="pagination-title">JOY Cia La Espina</span>
+        </div>
+      </a>
+      
+      <a href="les-noies-del-medi.html" class="pagination-btn pagination-btn--next">
+        <div class="pagination-text">
+          <span class="pagination-label">Next Project</span>
+          <span class="pagination-title">Les Noies del Medi</span>
+        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="pagination-arrow" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </nav>
   </main>
 
-  <nav class="floating-nav"><a href="../index.html" class="floating-nav__logo"><img src="https://framerusercontent.com/images/GscZbssLysDIiGxm8gp4KZNY.png?width=56&height=56" alt=""></a><button class="floating-nav__toggle" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
-  <div class="menu-overlay"><a href="../index.html" class="menu-overlay__link">Home</a><a href="../index.html#brand-design" class="menu-overlay__link">Work</a><a href="../index.html#contact" class="menu-overlay__link">Contact</a></div>
+  <!-- Contact Footer -->
+  <footer class="contact" id="contact">
+    <div class="contact__links reveal">
+      <a href="https://www.linkedin.com/in/soniadelsoroche/" class="contact__link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/soniadelso" class="contact__link" target="_blank" rel="noopener">Behance</a>
+    </div>
+  </footer>
+
   <script src="../js/main.js"></script>
+
+  <!-- Script para animaciones reveal, active sidebar scrollspy, drag de carrusel y filtros -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Script para animaciones reveal
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach(element => observer.observe(element));
+
+      // 2. Active Sidebar ScrollSpy
+      const sections = document.querySelectorAll('.project-section');
+      const navLinks = document.querySelectorAll('.side-nav-link');
+
+      const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '-20% 0px -50% 0px'
+      });
+      sections.forEach(sec => activeObserver.observe(sec));
+
+      // Smooth scroll manual con desfase
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            const headerOffset = 130;
+            const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // 3. Script para Carrusel de Proyectos (Desplazamiento nativo y Drag fluido)
+      const trackWrap = document.querySelector('.project-track-wrap');
+      const prevBtn = document.querySelector('.carousel-btn--prev');
+      const nextBtn = document.querySelector('.carousel-btn--next');
+
+      const scrollStep = 300; 
+      if (nextBtn && prevBtn && trackWrap) {
+        nextBtn.addEventListener('click', () => {
+          trackWrap.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        });
+        prevBtn.addEventListener('click', () => {
+          trackWrap.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+        });
+      }
+
+      // Drag to scroll con el ratón
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      let isDragging = false;
+      let startPageX = 0;
+
+      if (trackWrap) {
+        trackWrap.addEventListener('dragstart', (e) => {
+          e.preventDefault();
+        });
+
+        trackWrap.addEventListener('mousedown', (e) => {
+          isDown = true;
+          isDragging = false;
+          trackWrap.classList.add('active');
+          startX = e.pageX - trackWrap.offsetLeft;
+          startPageX = e.pageX;
+          scrollLeft = trackWrap.scrollLeft;
+        });
+
+        trackWrap.addEventListener('mouseleave', () => {
+          isDown = false;
+          trackWrap.classList.remove('active');
+        });
+
+        trackWrap.addEventListener('mouseup', () => {
+          isDown = false;
+          trackWrap.classList.remove('active');
+        });
+
+        trackWrap.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - trackWrap.offsetLeft;
+          const walk = (x - startX) * 1.5; 
+          trackWrap.scrollLeft = scrollLeft - walk;
+
+          if (Math.abs(e.pageX - startPageX) > 5) {
+            isDragging = true;
+          }
+        });
+
+        const cardLinks = trackWrap.querySelectorAll('.project-card__link');
+        cardLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            if (isDragging) {
+              e.preventDefault();
+            }
+          });
+        });
+      }
+
+      // 4. Script para Filtro del Carrusel
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.related .project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const selectedFilter = btn.getAttribute('data-filter');
+
+          projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (selectedFilter === 'all' || category === selectedFilter) {
+              card.style.display = ''; 
+            } else {
+              card.style.display = 'none'; 
+            }
+          });
+
+          if (trackWrap) {
+            trackWrap.scrollLeft = 0;
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
