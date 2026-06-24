@@ -1,0 +1,16 @@
+# Reglas del Proyecto y Guía de Estilo
+
+## 1. Identidad Visual y Estilo (Estricto)
+- **Color de Marca**: Mantén y respeta siempre el color hexadecimal `#5A7EC8` para los títulos de la marca y elementos principales de identidad visual. No lo modifiques por otros tonos de azul.
+- **Tipografía**: No realices cambios en las fuentes, familias tipográficas ni estilos de texto preestablecidos a menos que el usuario lo solicite de manera explícita.
+- **Logotipo**: No alteres bajo ningún concepto el archivo del logo, su formato (SVG, PNG, etc.), sus dimensiones, su ruta de archivo ni su contenedor HTML/CSS.
+
+## 2. Flujo de Trabajo y Comunicación
+- **Cambios Precisos y Acotados**: Limítate estrictamente a realizar la modificación solicitada. Conserva el resto del código intacto y evita hacer cambios en la estructura general de los archivos, refactorizaciones no solicitadas o modificaciones en la lógica circundante que ya funciona.
+- **Cambios Mayores**: Antes de realizar modificaciones estructurales, refactorizaciones grandes o cambios en múltiples archivos a la vez, detente y pide confirmación al usuario describiendo el plan.
+- **Explicación de Procesos**: Explica con claridad cada paso que vas a dar. Detalla el porqué de los cambios propuestos y el impacto que tendrán en la web antes o durante la entrega del código.
+
+## 3. SEO, Accesibilidad y Responsividad
+- **SEO**: No alteres ni elimines etiquetas meta existentes, estructuras de encabezados semánticas (H1, H2, H3) ni los atributos `alt` de las imágenes. Si añades contenido nuevo, hazlo respetando la jerarquía SEO actual.
+- **Accesibilidad (a11y)**: Mantén el uso de HTML semántico, conserva los atributos ARIA existentes y asegura que los elementos interactivos sigan siendo navegables mediante teclado.
+- **Diseño Responsivo**: Cualquier cambio visual o nuevo elemento debe estar completamente optimizado para dispositivos móviles, tabletas y ordenadores. Bajo ninguna circunstancia rompas la responsividad o la maquetación adaptativa del código actual.

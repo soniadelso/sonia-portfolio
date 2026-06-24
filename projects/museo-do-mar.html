@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/project.css">
 
+  <!-- Script inline para prevenir el parpadeo de interfaz durante la carga del tema -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+
   <!-- Estilos personalizados para el Hero y el Ticker -->
   <style>
     /* Ajustes para que la imagen Hero ocupe todo el rectángulo de la izquierda */
@@ -139,6 +149,27 @@
           <li><a href="../index.html#ux-ui-design">UX/UI Design</a></li>
           <li><a href="../index.html#brand-design">Brand Design</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
+          <!-- Botón Switch para alternar modos -->
+          <li>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme" type="button">
+              <!-- Icono de Sol: visible en modo oscuro para cambiar a claro -->
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <!-- Icono de Luna: visible en modo claro para cambiar a oscuro -->
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -554,6 +585,17 @@
               e.preventDefault();
             }
           });
+        });
+      }
+
+      // 6. Script para alternar temas (Dark/Light Mode)
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          // Conmuta la clase en el elemento raíz <html>
+          const isLight = document.documentElement.classList.toggle('light-theme');
+          // Guarda la selección en localStorage para persistencia
+          localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
       }
 

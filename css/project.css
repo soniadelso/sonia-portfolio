@@ -1380,3 +1380,37 @@
     flex-direction: row-reverse;
   }
 }
+
+/* ==========================================================================
+   Light Theme Adaptations (Overrides for .light-theme)
+   ========================================================================== */
+
+/* Fondo del Hero Visual (de Gris Azulado Oscuro a Gris Azulado Claro Premium) */
+.light-theme .project-hero__visual {
+  background: #f0f2f5;
+}
+
+/* Suavizado de sombras para imágenes sobre fondo claro */
+.light-theme .project-hero__visual img {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .project-image {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* Adaptación del Hover transparente de los botones del Carrusel */
+.light-theme .carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Adaptación del fondo de la pastilla de filtros */
+.light-theme .related__filters {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Etiquetas de categoría en carrusel adaptadas a fondo claro */
+.light-theme .related .project-card__tag {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
